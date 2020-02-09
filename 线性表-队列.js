@@ -20,6 +20,11 @@ function circularQueue () {
       return this.list.length
     }
 
+    // 数据数量
+    getLength () {
+      return (this.getMaxSize() - this.font + this.rear) % this.getMaxSize()
+    }
+
     enQueue (x) {
       if ((this.rear + 1) % this.getMaxSize() === this.font) {
         throw new Error('队列溢出！')
