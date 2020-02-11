@@ -13,7 +13,8 @@ function StringMatch () {
   const testList = [
     'google',
     '',
-    'gooe'
+    'gooe',
+    'g'
   ]
 
   /**
