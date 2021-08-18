@@ -1,9 +1,10 @@
 /* ---------------------------------------------------------------------------------------
 * about:快排
-* author:马兆铿（13790371603 810768333@qq.com）
-* date:2020-11-12
+* author:马兆铿（137937163 81768333@qq.com）
+* date:22-11-12
 * ---------------------------------------------------------------------------------------- */
 
+// const a = [0, 5, 2, 1, 6, 3]
 const a = [30, 20, 60, 80, 70, 90, 50, 40, 10]
 
 // ✔️ 空间复杂度 O(1)
@@ -14,29 +15,38 @@ function quickSort(list) {
     arr[i] = arr[j];
     arr[j] = t;
   }
+
   // 分区
   function partition(arr, left, right) {
     const pivotIndex = right
     const pivot = arr[pivotIndex]
-    let storeIndex = left
+    let i = left // 左移指针
+    let j = right - 1 // 右移指针
 
-    for (let i = left; i < right; i++) {
-      if (arr[i] < pivot) {
-        swap(arr, i, storeIndex)
-        storeIndex += 1
+    // 直到指针相遇。为什么是 '<=' 而不是 '<'？因为当剩下 3 个时，内层的 j 不能移动，i 要移动到 j 上，完成比较工作
+    while (i <= j) {
+      if (arr[i] > pivot) {
+        if (arr[j] < pivot) {
+          swap(arr, i, j)
+        } else {
+          j -= 1
+        }
+      } else {
+        i += 1
       }
     }
-    swap(arr, storeIndex, pivotIndex)
-    return storeIndex
+
+    swap(arr, i, pivotIndex)
+    return i
   }
+
   // 排序
   function sort(arr, left, right) {
-    if (left > right) {
-      return
-    }
-    const sortIndex = partition(arr, left, right)
-    sort(arr, left, sortIndex - 1)
-    sort(arr, sortIndex + 1, right)
+    if (left > right) return
+
+    const pivotIndex = partition(arr, left, right)
+    sort(arr, left, pivotIndex - 1)
+    sort(arr, pivotIndex + 1, right)
   }
 
   sort(list, 0, list.length - 1)
