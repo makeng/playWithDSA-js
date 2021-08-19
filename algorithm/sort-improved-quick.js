@@ -4,20 +4,19 @@
 * date:22-11-12
 * ---------------------------------------------------------------------------------------- */
 
-// const a = [0, 5, 2, 1, 6, 3]
+// const a = [0, 5, 2, 1, 6, 3] // exp
 const a = [30, 20, 60, 80, 70, 90, 50, 40, 10]
 
 // ✔️ 空间复杂度 O(1)
-function quickSort(list) {
+function quickSort (list) {
   // 交换
-  function swap(arr, i, j) {
-    const t = arr[i];
-    arr[i] = arr[j];
-    arr[j] = t;
+  function swap (arr, i, j) {
+    const t = arr[i]
+    arr[i] = arr[j]
+    arr[j] = t
   }
-
   // 分区
-  function partition(arr, left, right) {
+  function partition (arr, left, right) {
     const pivotIndex = right
     const pivot = arr[pivotIndex]
     let i = left // 左移指针
@@ -39,9 +38,8 @@ function quickSort(list) {
     swap(arr, i, pivotIndex)
     return i
   }
-
   // 排序
-  function sort(arr, left, right) {
+  function sort (arr, left, right) {
     if (left > right) return
 
     const pivotIndex = partition(arr, left, right)

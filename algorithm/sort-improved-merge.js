@@ -1,8 +1,8 @@
 const a = [30, 20, 60, 80, 70, 90, 50, 40, 10]
 
 // 堆排序
-function mergeSort(list) {
-  function merge(arr1, arr2) {
+function mergeSort (list) {
+  function merge (arr1, arr2) {
     console.log('--合并--', arr1, arr2)
     const res = [...arr1]
 
@@ -24,7 +24,7 @@ function mergeSort(list) {
     return res
   }
 
-  function mSort(list) {
+  function mSort (list) {
     const mid = Math.floor(list.length / 2)
     let listL = list.slice(0, mid)
     let listR = list.slice(mid)

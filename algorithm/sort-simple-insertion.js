@@ -4,7 +4,7 @@ const a = [5, 8, 1, 9, 3, 7, 4, 6, 2]
 function insertionSort (list) {
   const sortedList = []
   sortedList[0] = list[0]
-  
+
   for (let i = 1; i < list.length; i++) {
     const item = list[i]
     let isNotInserted = true

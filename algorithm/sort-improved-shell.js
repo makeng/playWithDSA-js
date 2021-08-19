@@ -1,7 +1,7 @@
 const a = [1, 5, 8, 9, 3, 7, 4, 6, 2]
 
 // 插入。构建有序表，然后一个个插入有序表
-function insertionSort(list) {
+function insertionSort (list) {
   const sortedList = []
 
   sortedList[0] = list[0]
@@ -22,8 +22,8 @@ function insertionSort(list) {
   return sortedList
 }
 
-function shellSort(list) {
-  const {length} = list
+function shellSort (list) {
+  const { length } = list
   let gap = Math.trunc(length / 2)
 
   while (gap >= 1) {
