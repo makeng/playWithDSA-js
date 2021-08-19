@@ -9,8 +9,7 @@ const log = console.log
  * 年龄标记法，其实就是面向对象
  * @constructor
  */
-function method_ageMarking () {
-
+function solution_ageMarking () {
   let list = [0]
 
   function breed (list) {
@@ -39,13 +38,13 @@ function method_ageMarking () {
 }
 
 log('/*------ 对象解法 ------*/')
-method_ageMarking()
+solution_ageMarking()
 
 /**
  * 直接使用其数学本质
  * @constructor
  */
-function method_math () {
+function solution_math () {
   let list = [1]
 
   function calNext (index) {
@@ -60,13 +59,13 @@ function method_math () {
 }
 
 log('/*------ 数学解法 ------*/')
-method_math()
+solution_math()
 
 /**
  * 递归法
  * @constructor
  */
-function method_recursive () {
+function solution_recursive () {
   let list = []
 
   function fbi (i) {
@@ -88,4 +87,4 @@ function method_recursive () {
 }
 
 log('/*------ 递归解法 ------*/')
-method_recursive()
+solution_recursive()
