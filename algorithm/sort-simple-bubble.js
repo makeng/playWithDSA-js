@@ -9,25 +9,23 @@ function swap (list, i, j) {
 
 // 冒泡
 function bubbleSort (list) {
+  let isNotSwapped
   let cnt = 0
-  let isSwapped = false
 
-  for (let i = list.length - 1; i >= 0; i--) {
-    for (let j = 0; j < i; j++) {
+  for (let i = list.length - 1; i > 0; i--) {
+    isNotSwapped = true // 未交换
+    for (let j = 0; j <= i - 1; j++) {
+      cnt += 1
       if (list[j] > list[j + 1]) {
         swap(list, j, j + 1)
-        isSwapped = true
+        isNotSwapped = false
       }
-      cnt += 1
     }
-    // 如果都没有交换，表示从此往后的都符合了规律，不需要再进行
-    if (!isSwapped) {
-      console.log('break')
+    if (isNotSwapped) { // 说明顺序已经正确
       break
     }
   }
-
-  console.log('steps: ', cnt)
+  console.log('loop: ' + cnt)
   return list
 }
 
