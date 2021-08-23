@@ -3,18 +3,13 @@
 * author:马兆铿（137937163 81768333@qq.com）
 * date:22-11-12
 * ---------------------------------------------------------------------------------------- */
+import { swap } from './utils/array.js'
 
 // const a = [0, 5, 2, 1, 6, 3] // exp
 const a = [30, 20, 60, 80, 70, 90, 50, 40, 10]
 
 // ✔️ 空间复杂度 O(1)
 function quickSort (list) {
-  // 交换
-  function swap (arr, i, j) {
-    const t = arr[i]
-    arr[i] = arr[j]
-    arr[j] = t
-  }
   // 分区
   function partition (arr, left, right) {
     const pivotIndex = right

@@ -1,28 +1,24 @@
-const a = [5, 8, 1, 9, 3, 7, 4, 6, 2]
+import { swap } from './utils/array.js'
 
-// 插入。构建有序表，然后一个个插入有序表
+const a = [4, 2, 7, 1, 3]
+
+// 插入
 function insertionSort (list) {
-  const sortedList = []
-  sortedList[0] = list[0]
-
   for (let i = 1; i < list.length; i++) {
-    const item = list[i]
-    let isNotInserted = true
+    const temp = list[i]
+    let indexOfEmptySlot = i
 
-    for (let j = sortedList.length - 1; j >= 0; j--) {
-      if (item > sortedList[j]) {
-        sortedList.splice(j + 1, 0, item) // 插入
-        isNotInserted = false
-        break
+    for (let j = i - 1; j >= 0; j--) {
+      if (list[j] > temp) {
+        swap(list, j, j + 1) // 右移
+        indexOfEmptySlot = j
       }
     }
-    // 没有合适插入位置，则放置于最前面
-    if (isNotInserted) {
-      sortedList.unshift(item)
-    }
+    console.log('indexOfEmptySlot:' + indexOfEmptySlot, 'temp:' + temp)
+    list[indexOfEmptySlot] = temp
   }
 
-  return sortedList
+  return list
 }
 
 console.log(insertionSort(a))
