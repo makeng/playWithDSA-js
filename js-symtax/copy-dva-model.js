@@ -5,7 +5,7 @@
 * ---------------------------------------------------------------------------------------- */
 import merge from 'lodash/merge.js'
 
-// old version
+// stupid version
 const combineModels = (...models) =>
   models.reduce((sum, item) => ({
     ...sum,
@@ -27,16 +27,6 @@ const combineModels = (...models) =>
       ...item.subscriptions
     }
   }), {})
-
-// new version
-function mergeModels(...modelList) {
-  return modelList.reduce((acc, item) => {
-    for (const key in item) {
-      acc[key] = merge(acc[key], item[key])
-    }
-    return acc
-  }, {})
-}
 
 /* ----------------------------------------- data ----------------------------------------- */
 const ModelA = namespace => {
@@ -97,16 +87,11 @@ const ModelB = namespace => {
 const modelA = ModelA('Tony')
 const modelB = ModelB('Benny')
 
-console.time()
-const modelCombined = combineModels(modelA, modelB)
+let modelCombined = combineModels(modelA, modelB)
 console.log(modelCombined)
-console.log('--- time ---')
-console.timeEnd()
 
-console.log('------------------------------------')
+console.log('\n')
 
-console.time()
-const modelMerged = mergeModels(modelA, modelB)
+// my version
+let modelMerged = merge({}, modelA, modelB)
 console.log(modelMerged)
-console.log('--- time ---')
-console.timeEnd()
