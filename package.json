@@ -12,5 +12,8 @@
   "bugs": {
     "url": "https://github.com/makeng/playWith-dataStructure/issues"
   },
-  "homepage": "https://github.com/makeng/playWith-dataStructure"
+  "homepage": "https://github.com/makeng/playWith-dataStructure",
+  "devDependencies": {
+    "lodash": "^4.17.21"
+  }
 }

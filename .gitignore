@@ -1,1 +1,15 @@
-.idea
+# Editor directories and files
+.temp/
+.idea/
+.rn_temp/
+.DS_Store
+
+# pkg
+node_modules/
+
+# Generated production
+dist/
+yarn-error.log
+src/app.tsx
+src/app.config.ts
+deploy_version.properties

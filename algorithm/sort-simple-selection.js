@@ -13,7 +13,9 @@ function selectionSort (list) {
         indexOfMin = j
       }
     }
-    swap(list, indexOfMin, i)
+    if (indexOfMin !== i) {
+      swap(list, indexOfMin, i)
+    }
   }
 
   return list
