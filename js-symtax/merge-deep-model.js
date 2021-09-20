@@ -93,5 +93,10 @@ console.log(modelCombined)
 console.log('\n')
 
 // my version
-let modelMerged = merge({}, modelA, modelB)
+let modelMerged = merge({}, modelA, modelB,
+  {
+    namespace: 'Bill',
+    state: { name: 'kill' }
+  }
+)
 console.log(modelMerged)
