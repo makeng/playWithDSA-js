@@ -1,3 +1,5 @@
+import { consoleJsonString } from '../utils/console.js'
+
 const arr = [
   { id: 1, parentId: null, name: 'a' },
   { id: 2, parentId: null, name: 'b' },
@@ -9,17 +11,19 @@ const arr = [
   { id: 8, parentId: 7, name: 'h' },
 ]
 
-function array2Tree (list, id) {
-  const res = []
-  list.forEach(item => {
+function array2Tree(id, list) {
+  const child = []
+
+  for (let i = 0; i < list.length; i++) {
+    const item = list[i]
     if (item.parentId === id) {
-      item.children = array2Tree(list, item.id)
-      res.push(item)
+      item.child = array2Tree(item.id, list)
+      child.push(item)
     }
-  })
-  return res
+  }
+
+  return child
 }
 
-console.log(
-  JSON.stringify(array2Tree(arr, null), null, 2)
-)
+const res = array2Tree(null, arr)
+consoleJsonString(res)

@@ -1,4 +1,4 @@
-import { swap } from './utils/array.js'
+import { swap } from '../utils/array.js'
 
 const a = [4, 2, 7, 1, 3]
 

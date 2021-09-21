@@ -1,4 +1,4 @@
-import { swap } from './utils/array.js'
+import { swap } from '../utils/array.js'
 
 const a = [9, 1, 5, 8, 3, 7, 4, 6, 2]
 const b = [1, 2, 3, 4, 5, 6, 7, 8, 9]
