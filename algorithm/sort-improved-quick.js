@@ -1,23 +1,24 @@
 /* ---------------------------------------------------------------------------------------
 * about:快排
 * author:马兆铿（137937163 81768333@qq.com）
-* date:22-11-12
+* date:2020-11-12
 * ---------------------------------------------------------------------------------------- */
 import { swap } from '../utils/array.js'
 
-// const a = [0, 5, 2, 1, 6, 3] // exp
 const a = [30, 20, 60, 80, 70, 90, 50, 40, 10]
 
 // ✔️ 空间复杂度 O(1)
-function quickSort (list) {
+function quickSort(list) {
   // 分区
-  function partition (arr, left, right) {
+  function partition(arr, left, right) {
     const pivotIndex = right
     const pivot = arr[pivotIndex]
     let i = left // 左移指针
     let j = right - 1 // 右移指针
 
-    // 直到指针相遇。为什么是 '<=' 而不是 '<'？因为当剩下 3 个时，内层的 j 不能移动，i 要移动到 j 上，完成比较工作
+    // 直到指针相遇。
+    // 为什么是 '<=' 而不是 '<'？不是要处理数组只有 2 个元素的情况。
+    // 而是处理只有 3 个的时候，让 i > j，最后让 pivotIndex 交换到正确的位置 i
     while (i <= j) {
       if (arr[i] > pivot) {
         if (arr[j] < pivot) {
@@ -34,7 +35,7 @@ function quickSort (list) {
     return i
   }
   // 排序
-  function sort (arr, left, right) {
+  function sort(arr, left, right) {
     if (left > right) return
 
     const pivotIndex = partition(arr, left, right)
